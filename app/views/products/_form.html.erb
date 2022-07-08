@@ -1,0 +1,23 @@
+<%= form_with(model: product, url: url) do |f| %>
+
+  <div class="control-group">
+    <%= f.label :title, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :title %>
+    </div>
+    <%= f.label :description, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_area :description %>
+    </div>
+    <%= f.label :imgs, class: "control-label" %>
+    <div class="controls">
+      <%= f.file_field :imgs %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
