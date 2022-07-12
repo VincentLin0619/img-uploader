@@ -1,0 +1,47 @@
+<h1>新增商品</h1>
+<%= form_with(model: @product) do |f| %>
+  <div class="container">
+    <form>
+      <div class="mb-3 row">
+        <%= f.label "商品標題", class: "col-xs-4 col-form-label" %>
+        <div class="col-xs-8">
+          <%= f.text_field :titile, class: "form-control" %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :description, class: "col-xs-4 col-form-label" %>
+        <div class="col-xs-8">
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :price, class: "col-xs-4 col-form-label" %>
+        <div class="col-xs-8">
+          <%= f.number_field :price, class: "form-control" %>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label :description, class: "col-xs-4 col-form-label" %>
+        <div class="col-xs-8">
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+      </div>
+      <fieldset class="mb-3 row">
+        <legend class="col-form-legend col-xs-4">ImageUploader</legend>
+        <div class="col-xs-8">
+          <%= f.fields_for :product_imgs do |ff| %>
+            <%= ff.label "圖片名稱" %>
+            <%= ff.text_field :img %>
+            <%= ff.label "圖片描述" %>
+            <%= ff.text_field :des %>
+          <% end %>
+        </div>
+      </fieldset>
+      <div class="mb-3 row">
+        <div class="offset-sm-4 col-sm-8">
+          <%= f.submit %>
+        </div>
+      </div>
+    </form>
+  </div>
+<% end %>

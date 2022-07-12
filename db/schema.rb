@@ -10,19 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_08_081124) do
+ActiveRecord::Schema.define(version: 2022_07_09_060025) do
 
-  create_table "imgs", force: :cascade do |t|
-    t.integer "product_id"
-    t.string "des"
+  create_table "product_imgs", force: :cascade do |t|
+    t.string "img"
+    t.text "des"
+    t.string "products_type", default: "Photo"
+    t.integer "products_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "img"
+    t.index ["products_type", "products_id"], name: "index_product_imgs_on_products"
   end
 
   create_table "products", force: :cascade do |t|
     t.string "title"
-    t.string "description"
+    t.text "description"
+    t.integer "price"
+    t.integer "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
